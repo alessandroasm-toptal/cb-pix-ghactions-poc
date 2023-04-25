@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -18,12 +18,12 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       #
       # Installs Node.js
       #
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
@@ -32,9 +32,11 @@ jobs:
       #
       - name: Install dependencies
         run: npm install
+        working-directory: ./worker
 
       #
       # Run unit tests
       #
       - name: Unit tests
         run: npm run test
+        working-directory: ./worker
