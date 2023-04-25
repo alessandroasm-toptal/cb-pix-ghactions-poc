@@ -1,0 +1,40 @@
+name: Deploy HTTP Server
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "httpServer/**"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      VERSION: ${{ github.sha }}
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE.
+      - uses: actions/checkout@v2
+
+      #
+      # Installs Node.js
+      #
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      #
+      # Installs dependencies.
+      #
+      - name: Install dependencies
+        run: npm install
+
+      #
+      # Run unit tests
+      #
+      - name: Unit tests
+        run: npm run test
