@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "httpServer/**"
+      - "worker/**"
   workflow_dispatch:
 
 jobs:
