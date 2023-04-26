@@ -7,3 +7,7 @@ it("Should add correctly", () => {
 it("Should add a negative number correctly", () => {
   expect(add(4, -3)).toBe(1);
 });
+
+it("Should add correctly", () => {
+  expect(add(3, 3)).toBe(6);
+});
