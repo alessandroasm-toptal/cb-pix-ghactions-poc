@@ -7,3 +7,7 @@ it("Should mul correctly", () => {
 it("Should trunc correctly", () => {
   expect(trunc(3.14)).toBe(3);
 });
+
+it("Should trunc correctly 2", () => {
+  expect(trunc(5.7)).toBe(5);
+});

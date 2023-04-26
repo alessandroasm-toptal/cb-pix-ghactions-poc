@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "httpServer/**"
+      - ".github/workflow/httpServer.yaml"
   workflow_dispatch:
 
 jobs:
